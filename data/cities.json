@@ -1,0 +1,88 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": 73930385
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": 17806751
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": 98443197
+    },
+    {
+      "cityName": "Todtnau",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2024-01-02T17:39:06.000Z",
+      "notes": "Excellent Place",
+      "position": {
+        "lat": 47.84265762816538,
+        "lng": 7.910156250000001
+      },
+      "id": 347690
+    },
+    {
+      "cityName": "Taras",
+      "country": "Bangladesh",
+      "emoji": "🇧🇩",
+      "date": "2024-01-27T17:40:17.428Z",
+      "notes": "My home sweet home",
+      "position": {
+        "lat": 24.42714534008206,
+        "lng": 89.40673828125
+      },
+      "id": 652163
+    },
+    {
+      "cityName": "Sabaila",
+      "country": "Nepal",
+      "emoji": "🇳🇵",
+      "date": "2024-01-27T18:16:48.863Z",
+      "notes": "It reminds me of bunking Class",
+      "position": {
+        "lat": 26.789751030291114,
+        "lng": 86.05041503906251
+      },
+      "id": 455341
+    },
+    {
+      "cityName": "Dadri",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2023-12-30T18:18:45.000Z",
+      "notes": "Delhi was amazing experience",
+      "position": {
+        "lat": 28.555576049185973,
+        "lng": 77.31079101562501
+      },
+      "id": 956
+    }
+  ]
+}
