@@ -147,5 +147,5 @@ app.post("/deleteCity", (req, res) => {
 });
 
 app.listen(7001, () => {
-  console.log("Listening on 7001");
+  console.log("Listening on 7001 on localhost only");
 });
