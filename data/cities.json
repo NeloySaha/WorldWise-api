@@ -1,42 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
-    },
-    {
       "cityName": "Narail",
       "country": "Bangladesh",
       "emoji": "🇧🇩",
@@ -49,28 +13,28 @@
       "id": 1227499
     },
     {
-      "cityName": "France (eaux interieures en mer Mediterranee)",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-07-27T07:08:29.636Z",
-      "notes": "Well, it was wonderful ",
+      "cityName": "Khagrachhari",
+      "country": "Bangladesh",
+      "emoji": "🇧🇩",
+      "date": "2024-06-15T12:33:05.000Z",
+      "notes": "At first, I was a bit skeptical about the tour. But, it turned out great.",
       "position": {
-        "lat": 43.51668853502909,
-        "lng": 6.987304687500001
+        "lat": 23.089838367476705,
+        "lng": 92.00225830078126
       },
-      "id": 766943
+      "id": 290914
     },
     {
-      "cityName": "Haninge",
-      "country": "Sweden",
-      "emoji": "🇸🇪",
-      "date": "2024-07-20T07:09:27.000Z",
-      "notes": "Felt familiar to home\n",
+      "cityName": "Chennai",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-04-05T12:34:56.000Z",
+      "notes": "Chennai was nice and peaceful. I wanna revisit sometimes.",
       "position": {
-        "lat": 59.06315402462662,
-        "lng": 18.237304687500004
+        "lat": 13.004557745339781,
+        "lng": 80.29907226562501
       },
-      "id": 1168435
+      "id": 7050
     }
   ]
 }
