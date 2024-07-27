@@ -1,75 +1,64 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const path = require("path");
+require("dotenv").config();
+const port = process.env.PORT || 7001;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
+const filePath = path.join(__dirname, "data", "cities.json");
+
 app.get("/", (req, res) => {
-  return res.send("Welcome to Useless backend");
+  return res.send("Neloy's WorldWise API");
 });
 
 app.get("/getCities", (req, res) => {
-  try {
-    fs.readFile("./data/cities.json", "utf-8", (err, jsonData) => {
-      if (err) throw new Error("Error while reading data");
-
-      try {
-        return new Promise((resolve, _) => {
-          setTimeout(() => {
-            resolve(res.json(JSON.parse(jsonData).cities));
-          }, 0);
-        });
-      } catch (err) {
-        throw new Error("Error while reading data");
-      }
-    });
-  } catch (err) {
-    console.log(err);
-
-    return res.json(err);
-  }
+  fs.readFile(filePath, "utf-8", (err, jsonData) => {
+    if (err) {
+      console.error("Error while reading data:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+    try {
+      const data = JSON.parse(jsonData);
+      return res.json(data.cities);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  });
 });
 
 app.get("/getCities/:id", (req, res) => {
   const { id } = req.params;
 
-  try {
-    fs.readFile("./data/cities.json", "utf-8", (err, jsonData) => {
-      if (err) throw new Error("Error while reading data");
-
-      try {
-        return new Promise((resolve, _) => {
-          setTimeout(() => {
-            const city = JSON.parse(jsonData).cities.find(
-              (cityObj) => cityObj.id === Number(id)
-            );
-
-            resolve(res.json(city));
-          }, 500);
-        });
-      } catch (err) {
-        throw new Error("Error while reading data");
-      }
-    });
-  } catch (err) {
-    console.log(err);
-
-    return res.json(err);
-  }
+  fs.readFile(filePath, "utf-8", (err, jsonData) => {
+    if (err) {
+      console.error("Error while reading data:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+    try {
+      const data = JSON.parse(jsonData);
+      const city = data.cities.find((cityObj) => cityObj.id === Number(id));
+      return res.json(city || {});
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  });
 });
 
 app.post("/addCity", (req, res) => {
   const { cityName, country, emoji, date, notes, position, id } = req.body;
 
-  fs.readFile("./data/cities.json", "utf8", (err, jsonData) => {
+  fs.readFile(filePath, "utf8", (err, jsonData) => {
     if (err) {
       console.error("Error reading file:", err);
       return res.status(500).json({ error: "Internal server error" });
     }
-
-    let cities = [];
+    let cities;
     try {
       cities = JSON.parse(jsonData).cities;
     } catch (parseError) {
@@ -77,31 +66,14 @@ app.post("/addCity", (req, res) => {
       return res.status(500).json({ error: "Internal server error" });
     }
 
-    cities.push({
-      cityName,
-      country,
-      emoji,
-      date,
-      notes,
-      position,
-      id,
-    });
+    cities.push({ cityName, country, emoji, date, notes, position, id });
 
-    const updatedData = JSON.stringify({ cities: cities }, null, 2);
-
-    fs.writeFile("./data/cities.json", updatedData, (writeErr) => {
+    fs.writeFile(filePath, JSON.stringify({ cities }, null, 2), (writeErr) => {
       if (writeErr) {
         console.error("Error writing file:", writeErr);
         return res.status(500).json({ error: "Internal server error" });
       }
-
-      console.log("City added successfully:", cityName);
-
-      return new Promise((resolve, _) => {
-        setTimeout(() => {
-          resolve(res.json({ message: "City added successfully" }));
-        }, 0);
-      });
+      return res.json({ message: "City added successfully" });
     });
   });
 });
@@ -109,13 +81,12 @@ app.post("/addCity", (req, res) => {
 app.post("/deleteCity", (req, res) => {
   const { cityId } = req.body;
 
-  fs.readFile("./data/cities.json", "utf8", (err, jsonData) => {
+  fs.readFile(filePath, "utf8", (err, jsonData) => {
     if (err) {
       console.error("Error reading file:", err);
       return res.status(500).json({ error: "Internal server error" });
     }
-
-    let cities = [];
+    let cities;
     try {
       cities = JSON.parse(jsonData).cities;
     } catch (parseError) {
@@ -127,25 +98,20 @@ app.post("/deleteCity", (req, res) => {
       (cityObj) => cityObj.id !== Number(cityId)
     );
 
-    const updatedData = JSON.stringify({ cities: filteredCities }, null, 2);
-
-    fs.writeFile("./data/cities.json", updatedData, (writeErr) => {
-      if (writeErr) {
-        console.error("Error writing file:", writeErr);
-        return res.status(500).json({ error: "Internal server error" });
+    fs.writeFile(
+      filePath,
+      JSON.stringify({ cities: filteredCities }, null, 2),
+      (writeErr) => {
+        if (writeErr) {
+          console.error("Error writing file:", writeErr);
+          return res.status(500).json({ error: "Internal server error" });
+        }
+        return res.json({ message: "City Deleted successfully" });
       }
-
-      console.log("City Deleted successfully");
-
-      return new Promise((resolve, _) => {
-        setTimeout(() => {
-          resolve(res.json({ message: "City Deleted successfully" }));
-        }, 0);
-      });
-    });
+    );
   });
 });
 
-app.listen(7001, () => {
-  console.log("Listening on 7001 on localhost only");
+app.listen(port, () => {
+  console.log(`Listening on ${port}`);
 });

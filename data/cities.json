@@ -47,6 +47,30 @@
         "lng": 89.50286865234376
       },
       "id": 1227499
+    },
+    {
+      "cityName": "France (eaux interieures en mer Mediterranee)",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-07-27T07:08:29.636Z",
+      "notes": "Well, it was wonderful ",
+      "position": {
+        "lat": 43.51668853502909,
+        "lng": 6.987304687500001
+      },
+      "id": 766943
+    },
+    {
+      "cityName": "Haninge",
+      "country": "Sweden",
+      "emoji": "🇸🇪",
+      "date": "2024-07-20T07:09:27.000Z",
+      "notes": "Felt familiar to home\n",
+      "position": {
+        "lat": 59.06315402462662,
+        "lng": 18.237304687500004
+      },
+      "id": 1168435
     }
   ]
 }
